@@ -1,0 +1,1327 @@
+@startuml
+class logic.effects.debuffs.Poisoned {
+- int poisonLevel
++ <<Create>> Poisoned(BaseCharacter,int)
++ void increasePoisonLevel()
++ int getPoisonLevel()
++ void setPoisonLevel(int)
++ void activate()
++ String getDescription()
+}
+class ui.battle_scene.components.CharacterControlBarController {
+- StackPane characterName
+- ImageView characterImage
+- StackPane HP
+- StackPane stats
+- StackPane normalPane
+- ImageView normalImage
+- Button useNormalBtn
+- Button detailNormalBtn
+- Text normalCost
+- StackPane skillPane
+- ImageView skillImage
+- Button useSkillBtn
+- Button detailSkillBtn
+- Text skillCost
+- StackPane ultimatePane
+- ImageView ultimateImage
+- Button useUltimateBtn
+- Button detailUltimateBtn
+- Text ultimateCost
+- StackPane hpBar
+- Text hpText
+- Text name
+- Text atk
+- Text def
+- Text mat
+- Text mdf
+- ImageView effect1
+- ImageView effect2
+- ImageView effect3
+- ImageView effect4
+- ImageView effect5
+- ImageView effect6
+- ImageView effect7
+- ImageView effect8
+- BaseCharacter character
+- ArrayList<ImageView> statusEffectsImageView
+- EventHandler<ActionEvent> useActionHandler
++ void init(BaseCharacter)
++ void setHpBar()
++ void setStats()
++ void setStatusEffects()
++ void detailButtonClicked(ActionEvent)
++ BaseCharacter getCharacter()
++ void setCharacter(BaseCharacter)
++ void init()
+}
+class logic.characters.enemy.Skeleton {
++ <<Create>> Skeleton()
++ <<Create>> Skeleton(boolean)
+}
+interface ui.common.BaseController {
++ void start()
+~ void init()
+}
+class logic.characters.enemy.Minotaur {
+- int rageLevel
++ <<Create>> Minotaur()
++ <<Create>> Minotaur(boolean)
++ int getRageLevel()
++ void setRageLevel(int)
+}
+class ui.battle_scene.components.ActionDetailPopUpController {
+- Rectangle detailRect
+- Text detailName
+- Text detailManaCost
+- Text detailDescription
++ void init()
++ void showActionDetail(Action)
++ void showActionDetail(Effect)
++ void hideActionDetail()
+}
+class logic.actions.ultimates.MinotaurUltimate {
++ <<Create>> MinotaurUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class ui.home.Home {
+- Parent _node
+- BaseController _controller
++ void init()
++ void start()
++ Parent getNode()
+}
+class logic.skillCards.SkillCard {
+- Action skillAction
+- BaseCharacter character
++ <<Create>> SkillCard(Action)
++ void performAction()
++ Action getSkillAction()
++ void setSkillAction(Action)
+}
+class logic.levels.Level1 {
++ <<Create>> Level1()
+# void addMember()
+}
+abstract class logic.levels.Level {
+- Team enemyTeam
++ <<Create>> Level(Team)
+# {abstract}void addMember()
++ Team getEnemyTeam()
++ Image getImgIcon()
+}
+class logic.players.Player {
+- int MAX_MANA
+- int currentMana
+- int MAX_SPIRIT
+- int currentSpirit
++ <<Create>> Player()
++ Character getCharacter()
++ int getCurrentMana()
++ void setCurrentMana(int)
++ int getCurrentSpirit()
++ void setCurrentSpirit(int)
+}
+class ui.battle_scene.components.BattleBoard {
++ Group group1
++ <<Create>> BattleBoard()
++ BattleBoardController getController()
+}
+class ui.battle_scene.components.BattleBoardController {
+- BattleTeam batTeam1
+- BattleTeam batTeam2
++ void init()
++ BattleTeam getBatTeam1()
++ BattleTeam getBatTeam2()
++ ArrayList<Card> getAllCards()
+}
+class logic.actions.normals.LafyNormal {
++ <<Create>> LafyNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.effects.debuffs.Scare {
++ <<Create>> Scare(BaseCharacter,int)
++ void clearEffect()
++ void activate()
++ String getDescription()
+}
+class logic.levels.Level3 {
++ <<Create>> Level3()
+# void addMember()
+}
+class manager.SoundManager {
+- {static} SoundManager instance
+- {static} MediaPlayer bgmPlayer
+- {static} MediaPlayer sfxPlayer
+- HashMap<BGM,Pair<String,Double>> bgmMap
+- HashMap<SFX,Pair<String,Double>> sfxMap
+- <<Create>> SoundManager()
++ void playBGM(String,double)
++ void playBGM(BGM)
++ void stopBGM()
++ void playSFX(String,double)
++ void playSFX(SFX)
++ {static} void createInstance()
++ {static} SoundManager getInstance()
+}
+enum manager.BGM {
++  MAIN_MENU
++  BATTLE_SCENE
+}
+enum manager.SFX {
++  CLICK_DEFAULT
++  HOVER_DEFAULT
++  CLICK_LEVEL
++  HOVER_LEVEL
+}
+class ui.battle_scene.BattleSceneController {
+- SubScene battleSubScene
+- AnchorPane anchorPane
+- ImageView battleBackground
+- Button fightButton
+- StackPane linesLabel
+- StackPane gameEndPopUp
+- Text gameEndText
+- Button gameEndButton
+- StackPane abandonPopUp
+- Button abandonYesButton
+- Button abandonNoButton
+- Rectangle timerRect
+- StackPane phaseDisplayPane
+- StackPane endTurnPane
+- Button abandonButton
+- Phase nextPhase
+- Pannel pannel
+- PlayerControlBar playerControlBar
+- NextButton currentNextButton
+- CharacterControlBar characterControlBar
+- ActionDetailPopUp actionDetailPopUp
+- BattleBoard battleBoard
++ void start()
++ void init()
++ void handleAbandonButton()
++ void handleAbandonYesButton()
++ void handleAbandonNoButton(ActionEvent)
++ void fightButtonClicked()
++ void updatePhaseDisplay(String,String)
++ void setEndTurnButton(Phase)
++ void handleEndTurnButton()
++ void removeCurrentNextButton()
++ void setToBattleMode()
++ void setToManageTeamMode()
++ void setActionDetailPopUp(Action)
++ void setActionDetailPopUp(Effect)
++ void setGameEndPopUp(boolean)
++ void handleGameEndButton()
++ void setPercentTimerRect(double)
++ PlayerControlBar getPlayerControlBar()
++ PannelController getPannelController()
+}
+abstract class logic.effects.debuffs.Debuff {
++ <<Create>> Debuff(String,BaseCharacter,int,TriggerType,TriggerEvent,Image)
+}
+class router.Config {
++ {static} AppScene START_SCENE
++ {static} HashMap<AppScene,IAppScene> scenes
+- <<Create>> Config()
+}
+enum router.AppScene {
++  HOME
++  BATTLE
++  MAIN_MENU
+}
+class logic.actions.skills.ReirinSkill {
++ <<Create>> ReirinSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+abstract class logic.characters.Attacker {
++ <<Create>> Attacker(String,String,Stats,Image,Image,Image,Image)
++ <<Create>> Attacker(String,String,Stats,Image,Image,Image,Image,double,double)
++ String toString()
+}
+class logic.effects.debuffs.Paralyzed {
++ <<Create>> Paralyzed(BaseCharacter,int)
++ void clearEffect()
++ void activate()
++ String getDescription()
+}
+class ui.battle_scene.components.ActionDetailPopUp {
++ <<Create>> ActionDetailPopUp()
++ ActionDetailPopUpController getController()
+}
+class ui.battle_scene.components.BattleLineController {
+- ArrayList<Card> cards
+- StackPane card_container
+- Team.Line line
+- int CARD_GAP
++ void init()
++ void addCharacter(BaseCharacter)
++ void removeCharacter(BaseCharacter)
++ void clear()
++ void addCard(Card)
++ void removeCard(Card)
++ boolean isContainThisCard(Card)
++ ArrayList<Card> getCards()
++ Team.Line getLine()
++ void setLine(Team.Line)
+}
+class logic.actions.normals.DullahanNormal {
++ <<Create>> DullahanNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.Timer {
+- long duration
+- long start
+- long diff
+- Thread thread
+- boolean isRunning
++ <<Create>> Timer()
++ void start(CallBackFunc,CallBackFunc)
++ double getPercentage()
++ void setDuration(long)
++ void stop()
+}
+class logic.effects.buffs.PotionOfStrength {
++ <<Create>> PotionOfStrength(BaseCharacter,int)
++ void clearEffect()
++ void activate()
++ String getDescription()
+}
+class logic.actions.ultimates.KonaUltimate {
++ <<Create>> KonaUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ void activateEffect()
++ String getDescription()
++ Effect giveDebuff(BaseCharacter)
+}
+class utils.PreDefEffect {
+- <<Create>> PreDefEffect()
++ {static} DropShadow borderGlow()
++ {static} void sceneFadeInTransition(IAppScene,CallBackFunc)
++ {static} void sceneFadeOutTransition(IAppScene,CallBackFunc)
++ {static} void applyCharacterAnimation(ImageView)
++ {static} void applyAnimation1(Node)
++ {static} void applyAnimation2(Node)
++ {static} void applyAnimation3(Node)
++ {static} void applyIdleAnimation(Camera,SubScene)
+}
+class ui.common.PCamera {
++ Rotate xRotate
++ Rotate yRotate
++ Rotate zRotate
++ <<Create>> PCamera()
+}
+enum logic.actions.Target {
++  Enemy
++  AllEnemy
++  Friend
++  Both
++  Self
+}
+class logic.actions.skills.DevilSageSkill {
++ <<Create>> DevilSageSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
++ Effect giveDebuff(BaseCharacter)
+}
+class logic.actions.ultimates.SkeletonUltimate {
++ <<Create>> SkeletonUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class ui.battle_scene.components.NextButton {
++ <<Create>> NextButton(Phase)
+}
+class logic.effects.debuffs.Burning {
++ <<Create>> Burning(BaseCharacter,int)
++ void activate()
++ String getDescription()
+}
+class logic.effects.buffs.SoulBoost {
++ <<Create>> SoulBoost(BaseCharacter,int)
++ void clearEffect()
++ void activate()
++ String getDescription()
+}
+class router.Router {
+- {static} Router instance
+- {static} Stage stage
+- {static} Scene currentScene
+- {static} AppScene currentAppScene
+- {static} AppScene prevAppScene
+- <<Create>> Router(Stage)
++ {static} void createInstance(Stage)
++ {static} Router getInstance()
++ void push(AppScene)
++ {static} AppScene getCurrentAppScene()
+}
+abstract class logic.actions.Action {
+# String name
+# int manaCost
+# int spiritCost
+# Image iconImg
+# Target targetType
+# BaseCharacter user
+# ActionType type
+# boolean isFromSkillCard
++ <<Create>> Action(BaseCharacter,String,int,Image,Target)
++ Action clone()
++ {abstract}void activate(BaseCharacter)
++ void activateEffect()
++ void playEffectAndActivate(BaseCharacter)
++ {abstract}String getDescription()
++ boolean checkCost(int,int)
++ String getName()
++ void setName(String)
++ int getManaCost()
++ void setManaCost(int)
++ Image getIconImg()
++ void setIconImg(Image)
++ Target getTargetType()
++ void setTargetType(Target)
++ int getSpiritCost()
++ void setSpiritCost(int)
++ BaseCharacter getUser()
++ void setUser(BaseCharacter)
++ boolean isFromSkillCard()
++ void setFromSkillCard(boolean)
+}
+class ui.battle_scene.components.PannelController {
+- HBox attackerBox
+- HBox supporterBox
+- StackPane characterDetailPane
+- Rectangle detailRect
+- Text detailName
+- Text detailRole
+- Text detailHP
+- Text detailDEF
+- Text detailMEF
+- Text detailSpiritCost
+- Text detailATK
+- Text detailMAT
+- VBox actionsDetailBox
+- StackPane selectErrorPane
+- Shape selectedCharacter
+- Thread thread
+- boolean isRunning
++ Button selectButton
++ void init()
++ void handleSelectButton()
++ void setSelectedCharacter(Shape)
++ VBox actionDetailItem(Action)
++ void setSelectErrorPane(String)
++ void stopThread()
++ void startThread()
+}
+class logic.actions.ultimates.CyclopsUltimate {
++ <<Create>> CyclopsUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class ui.battle_scene.components.CharacterControlBar {
++ <<Create>> CharacterControlBar(BaseCharacter)
++ CharacterControlBarController getController()
+}
+class logic.effects.buffs.PowerBoostingMeal {
++ <<Create>> PowerBoostingMeal(BaseCharacter,int)
++ void clearEffect()
++ void activate()
++ String getDescription()
+}
+class logic.actions.skills.GolemSkill {
++ <<Create>> GolemSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class utils.CustomLoader {
++ <<Create>> CustomLoader(String)
++ {static} URL getFXML(String)
++ T load()
+}
+class logic.levels.Level4 {
++ <<Create>> Level4()
+# void addMember()
+}
+class logic.actions.normals.MewtenNormal {
++ <<Create>> MewtenNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.actions.ultimates.DullahanUltimate {
++ <<Create>> DullahanUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
++ Effect giveBuff(BaseCharacter)
+}
+class logic.characters.enemy.Dullahan {
++ <<Create>> Dullahan()
++ <<Create>> Dullahan(boolean)
+}
+class logic.actions.normals.KonaNormal {
++ <<Create>> KonaNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ void activateEffect()
++ Effect giveDebuff(BaseCharacter)
++ void heal(BaseCharacter,int)
++ String getDescription()
+}
+enum logic.effects.TriggerType {
++  NOT_TRIGGER
++  TRIGGER
+}
+class logic.effects.buffs.HalfLifeSacrifice {
+- BaseCharacter buffGiver
+- {static} boolean isUsed
++ <<Create>> HalfLifeSacrifice(BaseCharacter,int,BaseCharacter)
++ void activate()
++ String getDescription()
++ {static} boolean isUsed()
++ {static} void setIsUsed(boolean)
++ BaseCharacter getBuffGiver()
+}
+abstract class logic.actions.UltimateAction {
++ <<Create>> UltimateAction(BaseCharacter,String,int,Image,Target)
+}
+class logic.actions.ultimates.LafyUltimate {
++ <<Create>> LafyUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
++ Effect giveBuff(BaseCharacter)
++ void heal(BaseCharacter,int)
+}
+class logic.actions.skills.EstaaSkill {
++ <<Create>> EstaaSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
++ Effect giveBuff(BaseCharacter)
++ Effect giveDebuff(BaseCharacter)
+}
+class ui.mainMenu.MainMenuController {
+- Circle level1Circle
+- Circle level2Circle
+- Circle level3Circle
+- Circle level4Circle
+- Circle level5Circle
+- Circle level6Circle
+- Button startButton
+- ImageView characterImage
+- Circle selectedCircle
+- Animation characterAnimation
++ void init()
++ void start()
+- void setCircleInfo(Circle,int)
+- void selectCircle(Circle)
++ void goButtonHandler()
+}
+class logic.characters.enemy.Golem {
++ <<Create>> Golem()
++ <<Create>> Golem(boolean)
+}
+interface ui.common.CharacterWrapper {
++ BaseCharacter getCharacter()
++ void setCharacter(BaseCharacter)
+}
+abstract class logic.effects.buffs.Buff {
++ <<Create>> Buff(String,BaseCharacter,int,TriggerType,TriggerEvent,Image)
+}
+class logic.actions.normals.GolemNormal {
++ <<Create>> GolemNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class ui.battle_scene.components.PlayerControlBarController {
+- StackPane stackPane
+- StackPane mana
+- StackPane spirit
+- Text manaText
+- Text spiritText
+- ImageView skillCardImg
+- Button useSkillCardButton
+- AnchorPane skillCardBox
+- EventHandler<MouseEvent> skillCardButtonEventHandler
+- CharacterControlBar characterControlBar
++ void init()
++ void showCharacterControlBar(BaseCharacter)
++ void hideCharacterControlBar()
++ void updateManaBar(int)
++ void updateSpiritBar(int)
++ void setSkillCard(SkillCard)
++ void unsetSkillCard()
++ CharacterControlBar getCharacterControlBar()
++ void setCharacterControlBar(CharacterControlBar)
++ PlayerControlBar getNode()
+}
+abstract class logic.actions.NormalAction {
++ <<Create>> NormalAction(BaseCharacter,String,int,Image,Target)
+}
+class logic.actions.normals.ReirinNormal {
++ <<Create>> ReirinNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.actions.normals.SkeletonNormal {
++ <<Create>> SkeletonNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+interface logic.interfaces.Debuffable {
+~ Effect giveDebuff(BaseCharacter)
+}
+class logic.effects.buffs.Purified {
++ <<Create>> Purified(BaseCharacter,int)
++ void activate()
++ String getDescription()
+}
+class logic.actions.normals.ElveneNormal {
++ <<Create>> ElveneNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.GameController {
+- {static} GameController instance
+- BattleBoard battleBoard
+- AnchorPane battleSceneAnchorPane
+- BattleSceneController battleSceneController
+- PlayerControlBarController playerControlBarController
+- Team playerTeam
+- Team enemyTeam
+- Player player
+- boolean isGameOver
+- boolean isWin
+- Phase currentPhase
+- Action currentAction
+- int round
+- Timer timer
+- Thread thread
+- <<Create>> GameController()
++ void initGame()
+- void initPlayer()
+- void initPlayerTeam()
+- void initEnemyTeam()
++ void setBattleBoard(BattleBoard)
++ BattleBoard getBattleBoard()
++ BattleSceneController getBattleSceneController()
++ void setBattleSceneController(BattleSceneController)
++ void play()
++ void manageTeam()
++ void startPhase()
++ void drawPhase()
++ void actionPhase()
++ void enemyTurn()
++ void gameOver()
++ void gameWin()
++ void showTargetCharacters()
++ void setCharactersColorToNormal()
++ boolean runEffectByEvent(TriggerEvent)
++ boolean runEffectByEvent(TriggerEvent,BaseCharacter)
++ void reduceEffectDuration()
++ void randomSkillCard()
++ {static} void createInstance()
++ {static} GameController getInstance()
++ Team getPlayerTeam()
++ void setPlayerTeam(Team)
++ Team getEnemyTeam()
++ void setEnemyTeam(Team)
++ {static} boolean isEnemyTeam(BaseCharacter)
++ {static} boolean isEnemyTeam(Team)
++ {static} boolean isEnemyTeam(BattleTeam)
++ Player getPlayer()
++ void setPlayer(Player)
++ boolean isGameOver()
++ void setGameOver(boolean)
++ boolean isWin()
++ void setWin(boolean)
++ Phase getCurrentPhase()
++ void setCurrentPhase(Phase)
++ Action getCurrentAction()
++ void setCurrentAction(Action)
++ PlayerControlBarController getPlayerControlBarController()
++ void setPlayerControlBarController(PlayerControlBarController)
++ void stopThread()
+}
+class ui.battle_scene.components.BattleTeam {
+~ <<Create>> BattleTeam(Team)
++ BattleTeamController getController()
+}
+class logic.actions.skills.DullahanSkill {
++ <<Create>> DullahanSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.characters.isekai.Mewten {
+- boolean isPerfectGuard
++ <<Create>> Mewten()
++ boolean isPerfectGuard()
++ void setPerfectGuard(boolean)
++ void takeDamage(BaseCharacter,int,ActionType)
++ void takeDamageDirectly(BaseCharacter,int,ActionType)
+}
+class logic.actions.skills.VampireSkill {
++ <<Create>> VampireSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
++ Effect giveDebuff(BaseCharacter)
++ void heal(BaseCharacter,int)
+}
+class logic.actions.skills.ElveneSkill {
++ <<Create>> ElveneSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class application.Main {
++ void start(Stage)
++ void stop()
++ {static} void main(String[])
+}
+class utils.CustomCursor {
++ {static} Cursor UNAVAILABLE
+- <<Create>> CustomCursor()
+}
+class ui.battle_scene.components.CardController {
+- Rectangle bg_rect
+- ImageView cardImage
+- StackPane cardPane
+- StackPane hpBar
+- Text hpText
+- ImageView hit
+- ImageView shield
+- ImageView effect1
+- ImageView effect2
+- ImageView effect3
+- ImageView effect4
+- BaseCharacter character
+- ArrayList<ImageView> cardStatusEffects
+- double cardStartX
+- boolean isDragged
+- boolean allowDrag
++ void init()
++ void fillBlack()
++ void fillNormalColor()
++ Card getNode()
++ void setCharacter(BaseCharacter)
++ void updateCardHp()
++ void select()
++ void deselect()
++ BaseCharacter getCharacter()
++ void setAllowDrag(boolean)
++ void invert()
++ void setEffect(ArrayList<logic.effects.Effect>)
++ StackPane getHpBar()
++ void setHpBar(StackPane)
++ Text getHpText()
++ void setHpText(Text)
++ void setHit(boolean)
++ ImageView getShield()
++ ImageView getCardImage()
+}
+class ui.home.HomeController {
+- Button startButton
++ void start()
++ void buttonHandler()
+}
+class logic.actions.ultimates.MewtenUltimate {
++ <<Create>> MewtenUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
++ Effect giveDebuff(BaseCharacter)
+}
+class ui.battle_scene.components.PhaseDisplayPane {
++ <<Create>> PhaseDisplayPane()
++ PhaseDisplayPaneController getController()
+}
+class logic.team.Team {
+- String teamName
+- int MAX_TEAM_SIZE
+- ArrayList<BaseCharacter> members
+- HashMap<BaseCharacter,Line> lineHashMap
++ <<Create>> Team(String)
++ ArrayList<BaseCharacter> getFront()
++ ArrayList<BaseCharacter> getMid()
++ ArrayList<BaseCharacter> getRear()
++ ArrayList<BaseCharacter> getMembers()
++ void addCharacter(BaseCharacter,Line)
++ boolean removeCharacter(BaseCharacter)
++ void moveCharacterToLine(BaseCharacter,Line)
++ void changeCharacterTo(BaseCharacter,BaseCharacter)
++ String getTeamName()
+}
+enum logic.team.Line {
++  FRONT
++  MID
++  REAR
+}
+abstract class logic.actions.SkillAction {
++ <<Create>> SkillAction(BaseCharacter,String,int,Image,Target)
+}
+class logic.actions.ultimates.ElveneUltimate {
++ <<Create>> ElveneUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.characters.isekai.Elvene {
++ <<Create>> Elvene()
+}
+class logic.actions.skills.KonaSkill {
++ <<Create>> KonaSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ void activateEffect()
++ Effect giveDebuff(BaseCharacter)
++ String getDescription()
+}
+class logic.actions.normals.VampireNormal {
++ <<Create>> VampireNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+interface ui.common.Selectable {
+~ void select()
+~ void deselect()
+}
+class ui.battle_scene.components.Pannel {
+- Parent _node
+- PannelController _controller
++ <<Create>> Pannel()
++ PannelController getController()
+}
+abstract class ui.common.BaseComponent {
+# Parent node
+# BaseComponentController controller
++ BaseComponentController getController()
+}
+class logic.actions.ultimates.GolemUltimate {
++ <<Create>> GolemUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.levels.Level6 {
++ <<Create>> Level6()
+# void addMember()
+}
+class ui.battle_scene.components.PhaseDisplayPaneController {
+- Text turnDisplay
+- Text phaseDisplay
++ void init()
++ void setTurnDisplayText(String)
++ void setPhaseDisplayText(String)
+}
+class logic.actions.skills.SkeletonSkill {
++ <<Create>> SkeletonSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.actions.ultimates.DevilSageUltimate {
++ <<Create>> DevilSageUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+interface utils.CallBackFunc {
++ void call()
+}
+class logic.characters.isekai.Kona {
++ <<Create>> Kona()
+}
+interface router.IAppScene {
++ void init()
++ void start()
++ Parent getNode()
+}
+class logic.characters.enemy.Vampire {
++ <<Create>> Vampire()
++ <<Create>> Vampire(boolean)
+}
+class logic.actions.skills.MewtenSkill {
++ <<Create>> MewtenSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.effects.debuffs.SuckBlood {
+- BaseCharacter debuffGiver
++ <<Create>> SuckBlood(BaseCharacter,int,BaseCharacter)
++ void activate()
++ String getDescription()
++ void heal(BaseCharacter,int)
++ BaseCharacter getDebuffGiver()
++ void setDebuffGiver(BaseCharacter)
+}
+class logic.actions.normals.MinotaurNormal {
++ <<Create>> MinotaurNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.actions.normals.CyclopsNormal {
++ <<Create>> CyclopsNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.actions.normals.DevilSageNormal {
++ <<Create>> DevilSageNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+abstract class logic.effects.Effect {
+# String name
+# BaseCharacter effectReceiver
+# int duration
+# Image iconImg
+# TriggerType triggerType
+# TriggerEvent triggerEvent
++ <<Create>> Effect(String,BaseCharacter,int,TriggerType,TriggerEvent,Image)
++ Effect clone()
++ void runDownDuration()
++ void addDuration(int)
++ void clearEffect()
++ {abstract}void activate()
++ {abstract}String getDescription()
++ String getName()
++ void setName(String)
++ BaseCharacter getEffectReceiver()
++ void setEffectReceiver(BaseCharacter)
++ int getDuration()
++ void setDuration(int)
++ Image getIconImg()
++ void setIconImg(Image)
++ TriggerType getTriggerType()
++ void setTriggerType(TriggerType)
++ TriggerEvent getTriggerEvent()
++ void setTriggerEvent(TriggerEvent)
+}
+class logic.actions.ultimates.EstaaUltimate {
++ <<Create>> EstaaUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
++ Effect giveBuff(BaseCharacter)
++ Effect giveDebuff(BaseCharacter)
+}
+class ui.battle_scene.components.BattleLine {
++ <<Create>> BattleLine(Team.Line)
++ BattleLineController getController()
+}
+class logic.effects.debuffs.BrokenArmor {
+- int def
+- int mdf
++ <<Create>> BrokenArmor(BaseCharacter,int)
++ void clearEffect()
++ void activate()
++ String getDescription()
+}
+class ui.battle_scene.components.BattleTeamController {
+- BattleLine battleLine1
+- BattleLine battleLine2
+- BattleLine battleLine3
+- Team team
+- Card selectedCard
++ <<Create>> BattleTeamController(Team)
++ void init()
++ void updateCard(BaseCharacter,BaseCharacter)
++ void setTeam(Team)
+- void update(Team)
++ void moveCharacterToLine(BaseCharacter,Team.Line)
++ BattleLine getBattleLine1()
++ BattleLine getBattleLine2()
++ BattleLine getBattleLine3()
++ Card getSelectedCard()
++ void setSelectedCard(Card)
++ ArrayList<Card> getAllCards()
+}
+class logic.characters.CharacterRegistry {
+- {static} ArrayList<BaseCharacter> CHARACTER_ARRAY_LIST
++ {static} ArrayList<BaseCharacter> getCharactersList()
+}
+interface logic.interfaces.Buffable {
+~ Effect giveBuff(BaseCharacter)
+}
+class logic.levels.LevelManager {
+- {static} LevelManager instance
+- ArrayList<Level> levels
+- int currentLevel
+- <<Create>> LevelManager()
++ {static} void createInstance()
++ {static} LevelManager getInstance()
++ Level getLevel()
++ Level getLevelInfo(int)
++ void setCurrentLevel(int)
+}
+enum logic.Phase {
++  manageTeam
++  start
++  draw
++  action
++  enemyTurn
+}
+class logic.characters.isekai.Estaa {
++ <<Create>> Estaa()
+}
+class ui.mainMenu.MainMenu {
+- Parent _node
+- BaseController _controller
++ void init()
++ void start()
++ Parent getNode()
+}
+class config.Config {
++ {static} String APP_NAME
++ {static} int APP_WIDTH
++ {static} int APP_HEIGHT
+- <<Create>> Config()
+}
+class logic.characters.Stats {
+- int MAX_HP
+- int health
+- int attack
+- int defense
+- int magic
+- int magicDef
++ <<Create>> Stats(int,int,int,int,int)
++ Stats clone()
++ int getHealth()
++ void setHealth(int)
++ int getAttack()
++ void setAttack(int)
++ int getDefense()
++ void setDefense(int)
++ int getMagic()
++ void setMagic(int)
++ int getMagicDef()
++ void setMagicDef(int)
++ int getMAX_HP()
++ void setMAX_HP(int)
+}
+abstract class logic.characters.Support {
++ <<Create>> Support(String,String,Stats,Image,Image,Image,Image)
++ <<Create>> Support(String,String,Stats,Image,Image,Image,Image,double,double)
++ String toString()
+}
+class ui.battle_scene.components.PlayerControlBar {
++ <<Create>> PlayerControlBar()
++ PlayerControlBarController getController()
+}
+class logic.actions.skills.LafySkill {
++ <<Create>> LafySkill(BaseCharacter)
++ void activate(BaseCharacter)
++ void activateEffect()
++ String getDescription()
++ Effect giveBuff(BaseCharacter)
++ void heal(BaseCharacter,int)
+}
+class logic.actions.ultimates.ReirinUltimate {
++ <<Create>> ReirinUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
++ Effect giveDebuff(BaseCharacter)
+}
+class logic.characters.enemy.Cyclops {
++ <<Create>> Cyclops()
++ <<Create>> Cyclops(boolean)
+}
+enum logic.effects.TriggerEvent {
++  NEW_TURN
++  RECEIVE_DEBUFF
++  HP_LTE_0
++  NONE
+}
+class logic.actions.ultimates.VampireUltimate {
++ <<Create>> VampireUltimate(BaseCharacter)
++ void activate(BaseCharacter)
++ Effect giveDebuff(BaseCharacter)
++ void heal(BaseCharacter,int)
++ String getDescription()
+}
+class logic.characters.isekai.Lafy {
++ <<Create>> Lafy()
+}
+class ui.battle_scene.components.NextButtonController {
++ void init(Phase)
++ void init()
++ NextButton getNode()
+}
+enum logic.actions.ActionType {
++  Physical
++  Magical
+}
+class logic.actions.normals.EstaaNormal {
++ <<Create>> EstaaNormal(BaseCharacter)
++ void activate(BaseCharacter)
++ Effect giveDebuff(BaseCharacter)
++ String getDescription()
+}
+abstract class logic.characters.BaseCharacter {
+# String name
+# String lastname
+# Stats stats
+# int shield
+# Image imgIcon
+# Image imgSprite
+# Image imgWithBg
+# Image imgCloseUp
+# ArrayList<Action> actionList
+# ArrayList<Effect> OwnEffect
+# ArrayList<Effect> statusEffect
+# boolean isActionThisTurn
+# boolean isTargetable
+# boolean isBot
+# ArrayList<Integer> ActionPattern
+# int actionPatternIndex
+# double damageMultiplier
+# boolean isModifySpriteSize
+# double modifyHeight
+# double modifyWidth
++ <<Create>> BaseCharacter(String,String,Stats,Image,Image,Image,Image)
++ <<Create>> BaseCharacter(String,String,Stats,Image,Image,Image,Image,double,double)
++ BaseCharacter clone()
++ boolean performAction(Action)
++ void takeDamage(BaseCharacter,int,ActionType)
++ void takeDamageDirectly(BaseCharacter,int,ActionType)
++ boolean canAfford(Action)
++ void getTarget(Action)
++ void getEnemy(Action)
++ void getAllEnemy(Action)
++ void getFriend(Action)
++ void getBoth(Action)
++ void getSelf(Action)
++ void botActivateAction(Action)
++ void resetTarget()
++ void updateCharacterHp()
++ void updateCheckAlive()
++ String getName()
++ void setName(String)
++ Stats getStats()
++ void setStats(Stats)
++ int getShield()
++ void setShield(int)
++ Image getImgIcon()
++ void setImgIcon(Image)
++ Image getImgSprite()
++ void setImgSprite(Image)
++ Image getImgWithBg()
++ void setImgWithBg(Image)
++ Image getImgCloseUp()
++ void setImgCloseUp(Image)
++ ArrayList<Action> getActionList()
++ void setActionList(ArrayList<Action>)
++ ArrayList<Effect> getStatusEffect()
++ void setStatusEffect(ArrayList<Effect>)
++ double getDamageMultiplier()
++ void setDamageMultiplier(double)
++ boolean isActionThisTurn()
++ void setActionThisTurn(boolean)
++ boolean isAlive()
++ String getLastname()
++ void setLastname(String)
++ boolean isTargetable()
++ void setTargetable(boolean)
++ boolean isBot()
++ void setBot(boolean)
++ ArrayList<Integer> getActionPattern()
++ void setActionPattern(ArrayList<Integer>)
++ int getActionPatternIndex()
++ void setActionPatternIndex(int)
++ ArrayList<Effect> getOwnEffect()
++ void setOwnEffect(ArrayList<Effect>)
++ boolean isModifySpriteSize()
++ double getModifyHeight()
++ void setModifyHeight(double)
++ double getModifyWidth()
++ void setModifyWidth(double)
++ Card getCard()
+}
+class logic.characters.isekai.Reirin {
++ <<Create>> Reirin()
+}
+class logic.levels.Level5 {
++ <<Create>> Level5()
+# void addMember()
+}
+class logic.characters.enemy.DevilSage {
++ <<Create>> DevilSage()
++ <<Create>> DevilSage(boolean)
+}
+interface logic.interfaces.Healable {
+~ void heal(BaseCharacter,int)
+}
+class logic.actions.skills.CyclopsSkill {
++ <<Create>> CyclopsSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class logic.actions.skills.MinotaurSkill {
++ <<Create>> MinotaurSkill(BaseCharacter)
++ void activate(BaseCharacter)
++ String getDescription()
+}
+class ui.battle_scene.components.Card {
++ <<Create>> Card(BaseCharacter)
++ CardController getController()
+}
+class logic.levels.Level2 {
++ <<Create>> Level2()
+# void addMember()
+}
+class utils.Assets {
+- <<Create>> Assets()
++ {static} String getAsset(String)
+}
+class ui.battle_scene.BattleScene {
+- Parent _node
+- BaseController _controller
++ void init()
++ Parent getNode()
++ void start()
+}
+class ui.common.Animation {
+- ImageView imageView
+- int duration
+- ArrayList<Image> frames
+- Thread thread
+- boolean isRunning
++ <<Create>> Animation(ImageView,int)
++ void addFrame(Image)
++ void start()
++ void stop()
+}
+abstract class ui.common.BaseComponentController {
+- StackPane node
++ {abstract}void init()
++ StackPane getNode()
++ void setNode(StackPane)
+}
+
+
+logic.effects.debuffs.Debuff <|-- logic.effects.debuffs.Poisoned
+ui.common.BaseComponentController <|-- ui.battle_scene.components.CharacterControlBarController
+logic.characters.Attacker <|-- logic.characters.enemy.Skeleton
+logic.characters.Attacker <|-- logic.characters.enemy.Minotaur
+ui.common.BaseComponentController <|-- ui.battle_scene.components.ActionDetailPopUpController
+logic.actions.UltimateAction <|-- logic.actions.ultimates.MinotaurUltimate
+router.IAppScene <|.. ui.home.Home
+logic.levels.Level <|-- logic.levels.Level1
+ui.common.BaseComponent <|-- ui.battle_scene.components.BattleBoard
+ui.common.BaseComponentController <|-- ui.battle_scene.components.BattleBoardController
+logic.actions.NormalAction <|-- logic.actions.normals.LafyNormal
+logic.effects.debuffs.Debuff <|-- logic.effects.debuffs.Scare
+logic.levels.Level <|-- logic.levels.Level3
+ui.common.BaseController <|.. ui.battle_scene.BattleSceneController
+logic.effects.Effect <|-- logic.effects.debuffs.Debuff
+logic.actions.SkillAction <|-- logic.actions.skills.ReirinSkill
+logic.characters.BaseCharacter <|-- logic.characters.Attacker
+logic.effects.debuffs.Debuff <|-- logic.effects.debuffs.Paralyzed
+ui.common.BaseComponent <|-- ui.battle_scene.components.ActionDetailPopUp
+ui.common.BaseComponentController <|-- ui.battle_scene.components.BattleLineController
+logic.actions.NormalAction <|-- logic.actions.normals.DullahanNormal
+logic.effects.buffs.Buff <|-- logic.effects.buffs.PotionOfStrength
+logic.interfaces.Debuffable <|.. logic.actions.ultimates.KonaUltimate
+logic.actions.UltimateAction <|-- logic.actions.ultimates.KonaUltimate
+ui.common.PerspectiveCamera <|-- ui.common.PCamera
+logic.interfaces.Debuffable <|.. logic.actions.skills.DevilSageSkill
+logic.actions.SkillAction <|-- logic.actions.skills.DevilSageSkill
+logic.actions.UltimateAction <|-- logic.actions.ultimates.SkeletonUltimate
+ui.common.BaseComponent <|-- ui.battle_scene.components.NextButton
+logic.effects.debuffs.Debuff <|-- logic.effects.debuffs.Burning
+logic.effects.buffs.Buff <|-- logic.effects.buffs.SoulBoost
+logic.actions.Cloneable <|.. logic.actions.Action
+ui.common.BaseComponentController <|-- ui.battle_scene.components.PannelController
+logic.actions.UltimateAction <|-- logic.actions.ultimates.CyclopsUltimate
+ui.common.BaseComponent <|-- ui.battle_scene.components.CharacterControlBar
+logic.effects.buffs.Buff <|-- logic.effects.buffs.PowerBoostingMeal
+logic.actions.SkillAction <|-- logic.actions.skills.GolemSkill
+javafx.fxml.FXMLLoader <|-- utils.CustomLoader
+logic.levels.Level <|-- logic.levels.Level4
+logic.actions.NormalAction <|-- logic.actions.normals.MewtenNormal
+logic.interfaces.Buffable <|.. logic.actions.ultimates.DullahanUltimate
+logic.actions.UltimateAction <|-- logic.actions.ultimates.DullahanUltimate
+logic.characters.Support <|-- logic.characters.enemy.Dullahan
+logic.interfaces.Debuffable <|.. logic.actions.normals.KonaNormal
+logic.interfaces.Healable <|.. logic.actions.normals.KonaNormal
+logic.actions.NormalAction <|-- logic.actions.normals.KonaNormal
+logic.effects.buffs.Buff <|-- logic.effects.buffs.HalfLifeSacrifice
+logic.actions.Action <|-- logic.actions.UltimateAction
+logic.interfaces.Buffable <|.. logic.actions.ultimates.LafyUltimate
+logic.interfaces.Healable <|.. logic.actions.ultimates.LafyUltimate
+logic.actions.UltimateAction <|-- logic.actions.ultimates.LafyUltimate
+logic.interfaces.Buffable <|.. logic.actions.skills.EstaaSkill
+logic.interfaces.Debuffable <|.. logic.actions.skills.EstaaSkill
+logic.actions.SkillAction <|-- logic.actions.skills.EstaaSkill
+ui.common.BaseController <|.. ui.mainMenu.MainMenuController
+logic.characters.Attacker <|-- logic.characters.enemy.Golem
+logic.effects.Effect <|-- logic.effects.buffs.Buff
+logic.actions.NormalAction <|-- logic.actions.normals.GolemNormal
+ui.common.BaseComponentController <|-- ui.battle_scene.components.PlayerControlBarController
+logic.actions.Action <|-- logic.actions.NormalAction
+logic.actions.NormalAction <|-- logic.actions.normals.ReirinNormal
+logic.actions.NormalAction <|-- logic.actions.normals.SkeletonNormal
+logic.effects.buffs.Buff <|-- logic.effects.buffs.Purified
+logic.actions.NormalAction <|-- logic.actions.normals.ElveneNormal
+ui.common.BaseComponent <|-- ui.battle_scene.components.BattleTeam
+logic.actions.SkillAction <|-- logic.actions.skills.DullahanSkill
+logic.characters.Attacker <|-- logic.characters.isekai.Mewten
+logic.interfaces.Debuffable <|.. logic.actions.skills.VampireSkill
+logic.interfaces.Healable <|.. logic.actions.skills.VampireSkill
+logic.actions.SkillAction <|-- logic.actions.skills.VampireSkill
+logic.actions.SkillAction <|-- logic.actions.skills.ElveneSkill
+javafx.application.Application <|-- application.Main
+ui.common.Selectable <|.. ui.battle_scene.components.CardController
+ui.common.CharacterWrapper <|.. ui.battle_scene.components.CardController
+ui.common.BaseComponentController <|-- ui.battle_scene.components.CardController
+ui.common.BaseController <|.. ui.home.HomeController
+logic.interfaces.Debuffable <|.. logic.actions.ultimates.MewtenUltimate
+logic.actions.UltimateAction <|-- logic.actions.ultimates.MewtenUltimate
+ui.common.BaseComponent <|-- ui.battle_scene.components.PhaseDisplayPane
+logic.actions.Action <|-- logic.actions.SkillAction
+logic.actions.UltimateAction <|-- logic.actions.ultimates.ElveneUltimate
+logic.characters.Attacker <|-- logic.characters.isekai.Elvene
+logic.interfaces.Debuffable <|.. logic.actions.skills.KonaSkill
+logic.actions.SkillAction <|-- logic.actions.skills.KonaSkill
+logic.actions.NormalAction <|-- logic.actions.normals.VampireNormal
+ui.common.BaseComponent <|-- ui.battle_scene.components.Pannel
+ui.common.StackPane <|-- ui.common.BaseComponent
+logic.actions.UltimateAction <|-- logic.actions.ultimates.GolemUltimate
+logic.levels.Level <|-- logic.levels.Level6
+ui.common.BaseComponentController <|-- ui.battle_scene.components.PhaseDisplayPaneController
+logic.actions.SkillAction <|-- logic.actions.skills.SkeletonSkill
+logic.actions.UltimateAction <|-- logic.actions.ultimates.DevilSageUltimate
+logic.characters.Attacker <|-- logic.characters.isekai.Kona
+logic.characters.Attacker <|-- logic.characters.enemy.Vampire
+logic.actions.SkillAction <|-- logic.actions.skills.MewtenSkill
+logic.interfaces.Healable <|.. logic.effects.debuffs.SuckBlood
+logic.effects.debuffs.Debuff <|-- logic.effects.debuffs.SuckBlood
+logic.actions.NormalAction <|-- logic.actions.normals.MinotaurNormal
+logic.actions.NormalAction <|-- logic.actions.normals.CyclopsNormal
+logic.actions.NormalAction <|-- logic.actions.normals.DevilSageNormal
+logic.effects.Cloneable <|.. logic.effects.Effect
+logic.interfaces.Buffable <|.. logic.actions.ultimates.EstaaUltimate
+logic.interfaces.Debuffable <|.. logic.actions.ultimates.EstaaUltimate
+logic.actions.UltimateAction <|-- logic.actions.ultimates.EstaaUltimate
+ui.common.BaseComponent <|-- ui.battle_scene.components.BattleLine
+logic.effects.debuffs.Debuff <|-- logic.effects.debuffs.BrokenArmor
+ui.common.BaseComponentController <|-- ui.battle_scene.components.BattleTeamController
+logic.characters.Support <|-- logic.characters.isekai.Estaa
+router.IAppScene <|.. ui.mainMenu.MainMenu
+logic.characters.Cloneable <|.. logic.characters.Stats
+logic.characters.BaseCharacter <|-- logic.characters.Support
+ui.common.BaseComponent <|-- ui.battle_scene.components.PlayerControlBar
+logic.interfaces.Buffable <|.. logic.actions.skills.LafySkill
+logic.interfaces.Healable <|.. logic.actions.skills.LafySkill
+logic.actions.SkillAction <|-- logic.actions.skills.LafySkill
+logic.interfaces.Debuffable <|.. logic.actions.ultimates.ReirinUltimate
+logic.actions.UltimateAction <|-- logic.actions.ultimates.ReirinUltimate
+logic.characters.Support <|-- logic.characters.enemy.Cyclops
+logic.interfaces.Debuffable <|.. logic.actions.ultimates.VampireUltimate
+logic.interfaces.Healable <|.. logic.actions.ultimates.VampireUltimate
+logic.actions.UltimateAction <|-- logic.actions.ultimates.VampireUltimate
+logic.characters.Support <|-- logic.characters.isekai.Lafy
+ui.common.BaseComponentController <|-- ui.battle_scene.components.NextButtonController
+logic.interfaces.Debuffable <|.. logic.actions.normals.EstaaNormal
+logic.actions.NormalAction <|-- logic.actions.normals.EstaaNormal
+logic.characters.Cloneable <|.. logic.characters.BaseCharacter
+logic.characters.Attacker <|-- logic.characters.isekai.Reirin
+logic.levels.Level <|-- logic.levels.Level5
+logic.characters.Support <|-- logic.characters.enemy.DevilSage
+logic.actions.SkillAction <|-- logic.actions.skills.CyclopsSkill
+logic.actions.SkillAction <|-- logic.actions.skills.MinotaurSkill
+ui.common.BaseComponent <|-- ui.battle_scene.components.Card
+logic.levels.Level <|-- logic.levels.Level2
+router.IAppScene <|.. ui.battle_scene.BattleScene
+@enduml

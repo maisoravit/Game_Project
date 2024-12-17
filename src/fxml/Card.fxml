@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="cardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="195.0" prefWidth="153.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.battle_scene.components.CardController">
+   <children>
+      <Rectangle fx:id="bg_rect" arcHeight="5.0" arcWidth="5.0" fill="#ffd2bb" height="150.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+      <AnchorPane prefHeight="168.0" prefWidth="139.0">
+         <children>
+            <StackPane id="bar" layoutX="27.0" layoutY="174.0" prefHeight="21.0" prefWidth="85.0" style="-fx-background-color: #8E8E8E;">
+               <children>
+                  <AnchorPane layoutX="12.0" layoutY="12.0" prefHeight="17.0" prefWidth="82.0">
+                     <children>
+                        <StackPane prefHeight="17.0" prefWidth="96.0" style="-fx-background-color: #666666;" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="17.0" prefWidth="82.0">
+                     <children>
+                        <StackPane fx:id="hpBar" prefHeight="17.0" prefWidth="62.0" style="-fx-background-color: #5DC875;" />
+                     </children>
+                  </AnchorPane>
+               </children>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </StackPane>
+            <Text fx:id="hpText" layoutX="27.0" layoutY="189.0" text="0/100" textAlignment="CENTER" wrappingWidth="99.88411331176758" />
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="cardImage" fitHeight="350.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" rotate="50.0" StackPane.alignment="CENTER">
+         <image>
+            <Image url="@../../../assets/images/kona_nobg.png" />
+         </image>
+         <rotationAxis>
+            <Point3D x="1.0" />
+         </rotationAxis>
+         <StackPane.margin>
+            <Insets bottom="160.0" />
+         </StackPane.margin>
+      </ImageView>
+      <AnchorPane prefHeight="195.0" prefWidth="213.0">
+         <children>
+            <ImageView fx:id="shield" fitHeight="103.0" fitWidth="133.0" layoutX="10.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" rotate="50.0">
+               <image>
+                  <Image url="@../assets/images/shield.png" />
+               </image>
+               <rotationAxis>
+                  <Point3D x="1.0" />
+               </rotationAxis>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="21.0" prefWidth="153.0">
+         <children>
+            <ImageView fx:id="hit" fitHeight="139.0" fitWidth="141.0" layoutX="8.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/hit.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="5.0" layoutY="84.0" prefHeight="165.0" prefWidth="143.0">
+               <children>
+                  <HBox layoutX="22.0" layoutY="136.0" prefHeight="28.0" prefWidth="100.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="effect1" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../assets/effects/purified.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="effect2" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../assets/effects/scare.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="effect3" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../assets/effects/half-life-sacrifice.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="effect4" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../assets/effects/atk-mat-boost.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

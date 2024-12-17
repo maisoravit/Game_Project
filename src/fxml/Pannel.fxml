@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.battle_scene.components.PannelController">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="850.0" style="-fx-background-color: #ffffffcc;">
+         <children>
+            <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity">
+               <children>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f46565" height="52.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="169.0" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Attacker" textAlignment="CENTER">
+                     <font>
+                        <Font name="Inter Regular" size="35.0" />
+                     </font>
+                  </Text>
+               </children>
+            </StackPane>
+            <HBox fx:id="attackerBox" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="800.0" spacing="30.0">
+               <padding>
+                  <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+               <children>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#65a7f4" height="52.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="187.0" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Supporter" textAlignment="CENTER">
+                     <font>
+                        <Font name="Inter Regular" size="35.0" />
+                     </font>
+                  </Text>
+               </children>
+            </StackPane>
+            <HBox fx:id="supporterBox" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="800.0" spacing="30.0">
+               <padding>
+                  <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <StackPane fx:id="characterDetailPane" prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#846961" height="444.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="820.0" StackPane.alignment="TOP_LEFT" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Rectangle fx:id="detailRect" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+                              <GridPane alignment="CENTER" prefHeight="128.0" prefWidth="214.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Text fx:id="detailRole" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Role: Attacker" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                       <font>
+                                          <Font name="Inter Regular" size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="WHITE" layoutX="73.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Stats" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Inter Regular" size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="detailHP" fill="WHITE" layoutX="97.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="HP: 175" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="Inter Regular" size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="detailDEF" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="DEF: 14" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="Inter Regular" size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="detailMEF" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="MEF: 22" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="Inter Regular" size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="detailSpiritCost" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Spirit Cost: 25" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                                       <font>
+                                          <Font name="Inter Regular" size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="detailATK" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="ATK: 15" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="Inter Regular" size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="detailMAT" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="MAT: 45" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="Inter Regular" size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </GridPane>
+                              <Button fx:id="selectButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleSelectButton" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: #43CF63;" text="SELECT" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Inter Regular" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <StackPane id="selectErrorPane" fx:id="selectErrorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                 <children>
+                                    <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f46565" height="23.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="182.0" />
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="⚠ Please Select Support Character" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Inter Regular" size="10.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="404.0" prefWidth="650.0">
+                           <children>
+                              <Text fx:id="detailName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Draki Kona" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Inter Regular" size="35.0" />
+                                 </font>
+                              </Text>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="444.0" prefWidth="591.0" style="-fx-background-color: #846961;" stylesheets="@../assets/styles/scrollBar.css">
+                                 <content>
+                                    <StackPane alignment="TOP_LEFT" prefHeight="985.0" prefWidth="581.0" style="-fx-background-color: #846961;">
+                                       <children>
+                                          <VBox fx:id="actionsDetailBox" prefHeight="200.0" prefWidth="100.0" spacing="20.0" stylesheets="@../assets/styles/global.css">
+                                             <children>
+                                                <VBox spacing="5.0">
+                                                   <children>
+                                                      <GridPane prefHeight="30.0" prefWidth="17.0">
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                         <children>
+                                                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Normal: Blaze You!">
+                                                               <font>
+                                                                  <Font name="Inter Regular" size="15.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Mana Cost: 20" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                                               <font>
+                                                                  <Font name="Inter Regular" size="15.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </GridPane>
+                                                      <HBox prefHeight="10.0" prefWidth="10.0" spacing="10.0">
+                                                         <children>
+                                                            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="71.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="71.0" />
+                                                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600; -fx-font-family: Inter; -fx-font-size: 15px;" text="Attack 1 enemy. Damage base on this unit’s MAT. And give debuff ‘Burning’ to all enemy in the same battle line for 2 turns. Then Kona’sHP increase by 6" wrappingWidth="347.3334045410156">
+                                                               <font>
+                                                                  <Font name="Inter Regular" size="15.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <padding>
+                                                <Insets right="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </StackPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </StackPane>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </children>
+</AnchorPane>

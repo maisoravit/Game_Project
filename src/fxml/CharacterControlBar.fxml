@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="952.0" style="-fx-background-color: #632E2E;" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.battle_scene.components.CharacterControlBarController">
+   <children>
+      <HBox prefHeight="180.0" prefWidth="952.0">
+         <children>
+            <StackPane prefHeight="180.0" prefWidth="161.0">
+               <children>
+                  <VBox prefHeight="180.0" prefWidth="166.0">
+                     <children>
+                        <StackPane fx:id="characterName" prefHeight="31.0" prefWidth="161.0">
+                           <children>
+                              <Text fx:id="name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                           </children></StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="162.0">
+                           <children>
+                              <ImageView fx:id="characterImage" fitHeight="140.0" fitWidth="140.0" preserveRatio="true" StackPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@../assets/characters/reirin/reirinWithBg.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets bottom="6.0" left="6.0" right="6.0" />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="180.0" prefWidth="163.0">
+               <children>
+                  <VBox prefHeight="180.0" prefWidth="153.0">
+                     <children>
+                        <StackPane fx:id="HP" prefHeight="60.0" prefWidth="163.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <StackPane prefHeight="150.0" prefWidth="200.0">
+                                       <children>
+                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="HP:" wrappingWidth="32.7890625">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <StackPane.margin>
+                                                <Insets top="3.0" />
+                                             </StackPane.margin>
+                                          </Text>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane id="hpSpace" prefHeight="60.0" prefWidth="294.0">
+                                       <children>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <StackPane id="bar" layoutX="-1.0" layoutY="4.0" prefHeight="17.0" prefWidth="126.0" style="-fx-background-color: #8E8E8E;">
+                                                   <children>
+                                                      <AnchorPane layoutX="12.0" layoutY="12.0" prefHeight="17.0" prefWidth="82.0">
+                                                         <children>
+                                                            <StackPane prefHeight="12.0" prefWidth="120.0" style="-fx-background-color: #666666;" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane prefHeight="15.0" prefWidth="151.0">
+                                                         <children>
+                                                            <StackPane fx:id="hpBar" prefHeight="12.0" prefWidth="62.0" style="-fx-background-color: #5DC875;" />
+                                                         </children>
+                                                         <StackPane.margin>
+                                                            <Insets />
+                                                         </StackPane.margin>
+                                                      </AnchorPane>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                                   </padding>
+                                                </StackPane>
+                                                <Text fx:id="hpText" fill="WHITE" layoutY="17.0" text="0/100" textAlignment="CENTER" wrappingWidth="124.13411331176758" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets top="3.0" />
+                                       </HBox.margin>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                           </children></StackPane>
+                        <StackPane layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="163.0">
+                           <children>
+                              <HBox prefHeight="13.0" prefWidth="163.0">
+                                 <children>
+                                    <StackPane prefHeight="150.0" prefWidth="200.0">
+                                       <children>
+                                          <Text fx:id="atk" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ATK:" wrappingWidth="80.453125">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane prefHeight="150.0" prefWidth="200.0">
+                                       <children>
+                                          <Text fx:id="mat" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="MAT:" wrappingWidth="81.5390625">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                        <StackPane layoutX="10.0" layoutY="52.0" prefHeight="60.0" prefWidth="163.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <StackPane prefHeight="150.0" prefWidth="200.0">
+                                       <children>
+                                          <Text fx:id="def" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DEF:" wrappingWidth="80.59375">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane prefHeight="150.0" prefWidth="200.0">
+                                       <children>
+                                          <Text fx:id="mdf" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="MDF:" wrappingWidth="81.8671875">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                        <StackPane layoutX="10.0" layoutY="70.0" prefHeight="16.0" prefWidth="163.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Status Effects:" wrappingWidth="161.2578125">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </Text>
+                           </children>
+                        </StackPane>
+                        <StackPane id="effectsArea" fx:id="stats" prefHeight="107.0" prefWidth="163.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="effect1" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/effects/atk-mat-boost.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="effect2" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/effects/purified.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="effect3" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/effects/half-life-sacrifice.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="effect4" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/effects/broken-armor.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="effect5" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/effects/burning.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="effect6" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/effects/paralyzed.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="effect7" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/effects/scare.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="effect8" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../assets/effects/atk-mat-boost.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children></StackPane>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="180.0" prefWidth="629.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <StackPane fx:id="actionTopBar" prefHeight="134.0" prefWidth="629.0">
+                           <children>
+                              <Text fill="WHITE" layoutY="10.0" text="Actions" textAlignment="CENTER" wrappingWidth="450">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button id="exit" layoutX="598.0" layoutY="6.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 50; -fx-background-color: #E73E3E;" text="X" textFill="WHITE" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                        <StackPane fx:id="actions" prefHeight="239.0" prefWidth="532.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <StackPane fx:id="normalPane" prefHeight="135.0" prefWidth="224.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0">
+                                                         <children>
+                                                            <StackPane prefHeight="28.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Normal" textAlignment="CENTER" wrappingWidth="97.86068725585938">
+                                                                     <font>
+                                                                        <Font size="16.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                            </StackPane>
+                                                            <StackPane prefHeight="131.0" prefWidth="89.0">
+                                                               <children>
+                                                                  <ImageView fx:id="normalImage" fitHeight="90.0" fitWidth="90.0" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/actions/reirin/reirinSkill.jpg" />
+                                                                     </image>
+                                                                     <StackPane.margin>
+                                                                        <Insets bottom="20.0" />
+                                                                     </StackPane.margin>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </StackPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0">
+                                                         <children>
+                                                            <StackPane prefHeight="130.0" prefWidth="101.0" />
+                                                            <StackPane prefHeight="19.0" prefWidth="101.0">
+                                                               <children>
+                                                                  <Text fx:id="normalCost" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Mana Cost: " textAlignment="CENTER" wrappingWidth="100.4296875">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </StackPane>
+                                                            <StackPane prefHeight="150.0" prefWidth="101.0">
+                                                               <children>
+                                                                  <Button fx:id="useNormalBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #4E7BD1;" text="Use" textFill="WHITE">
+                                                                     <StackPane.margin>
+                                                                        <Insets bottom="5.0" />
+                                                                     </StackPane.margin>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></Button>
+                                                               </children>
+                                                            </StackPane>
+                                                            <StackPane prefHeight="150.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Button fx:id="detailNormalBtn" mnemonicParsing="false" onAction="#detailButtonClicked" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #7B7B8B;" text="Detail" textFill="WHITE">
+                                                                     <StackPane.margin>
+                                                                        <Insets bottom="20.0" />
+                                                                     </StackPane.margin>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </StackPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane fx:id="skillPane" prefHeight="135.0" prefWidth="224.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0">
+                                                         <children>
+                                                            <StackPane prefHeight="24.0" prefWidth="104.0">
+                                                               <children>
+                                                                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Skill" textAlignment="CENTER" wrappingWidth="97.86068725585938">
+                                                                     <font>
+                                                                        <Font size="16.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                            </StackPane>
+                                                            <StackPane prefHeight="131.0" prefWidth="89.0">
+                                                               <children>
+                                                                  <ImageView fx:id="skillImage" fitHeight="90.0" fitWidth="90.0" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/actions/reirin/reirinSkill.jpg" />
+                                                                     </image>
+                                                                     <StackPane.margin>
+                                                                        <Insets bottom="20.0" />
+                                                                     </StackPane.margin>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </StackPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0">
+                                                         <children>
+                                                            <StackPane prefHeight="130.0" prefWidth="101.0" />
+                                                            <StackPane prefHeight="19.0" prefWidth="101.0">
+                                                               <children>
+                                                                  <Text fx:id="skillCost" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Mana Cost: " textAlignment="CENTER" wrappingWidth="102.4296875">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </StackPane>
+                                                            <StackPane prefHeight="150.0" prefWidth="101.0">
+                                                               <children>
+                                                                  <Button fx:id="useSkillBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #4E7BD1;" text="Use" textFill="WHITE">
+                                                                     <StackPane.margin>
+                                                                        <Insets bottom="5.0" />
+                                                                     </StackPane.margin>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
+                                                                  </Button>
+                                                               </children>
+                                                            </StackPane>
+                                                            <StackPane prefHeight="150.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Button fx:id="detailSkillBtn" mnemonicParsing="false" onAction="#detailButtonClicked" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #7B7B8B;" text="Detail" textFill="WHITE">
+                                                                     <StackPane.margin>
+                                                                        <Insets bottom="20.0" />
+                                                                     </StackPane.margin>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </StackPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane fx:id="ultimatePane" prefHeight="135.0" prefWidth="224.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0">
+                                                         <children>
+                                                            <StackPane prefHeight="25.0" prefWidth="109.0">
+                                                               <children>
+                                                                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Ultimate" textAlignment="CENTER" wrappingWidth="97.86068725585938">
+                                                                     <font>
+                                                                        <Font size="16.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                            </StackPane>
+                                                            <StackPane prefHeight="131.0" prefWidth="89.0">
+                                                               <children>
+                                                                  <ImageView fx:id="ultimateImage" fitHeight="90.0" fitWidth="90.0" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../assets/actions/reirin/reirinSkill.jpg" />
+                                                                     </image>
+                                                                     <StackPane.margin>
+                                                                        <Insets bottom="20.0" />
+                                                                     </StackPane.margin>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </StackPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane prefHeight="150.0" prefWidth="200.0">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0">
+                                                         <children>
+                                                            <StackPane prefHeight="130.0" prefWidth="101.0" />
+                                                            <StackPane prefHeight="19.0" prefWidth="101.0">
+                                                               <children>
+                                                                  <Text fx:id="ultimateCost" fill="WHITE" layoutX="10.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spirit Cost: " textAlignment="CENTER" wrappingWidth="109.4296875">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </StackPane>
+                                                            <StackPane prefHeight="150.0" prefWidth="101.0">
+                                                               <children>
+                                                                  <Button fx:id="useUltimateBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #4E7BD1;" text="Use" textFill="WHITE">
+                                                                     <StackPane.margin>
+                                                                        <Insets bottom="5.0" />
+                                                                     </StackPane.margin>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
+                                                                  </Button>
+                                                               </children>
+                                                            </StackPane>
+                                                            <StackPane prefHeight="150.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Button fx:id="detailUltimateBtn" mnemonicParsing="false" onAction="#detailButtonClicked" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #7B7B8B;" text="Detail" textFill="WHITE">
+                                                                     <StackPane.margin>
+                                                                        <Insets bottom="20.0" />
+                                                                     </StackPane.margin>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </StackPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

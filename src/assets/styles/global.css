@@ -1,0 +1,22 @@
+.normal-text {
+    -fx-font-family: 'Inter';
+    -fx-font-weight: 600;
+    -fx-font-size: 15px;
+    -fx-fill: #ffffff;
+}
+
+.selected {
+    -fx-effect: dropshadow(three-pass-box, rgba(100, 255, 100, 1), 50, 0.75, 0, 0);
+}
+
+.hovered {
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 100, 100, 1), 50, 0.75, 0, 0);
+}
+
+.button:hover {
+    -fx-effect: innershadow(gaussian, rgba(255, 255, 255, 0.75), 40, 0.1, 0, 0);
+}
+
+.button:pressed {
+    -fx-effect: innershadow(gaussian, rgba(177, 255, 189, 0.75), 40, 0.1, 0, 0);
+}
